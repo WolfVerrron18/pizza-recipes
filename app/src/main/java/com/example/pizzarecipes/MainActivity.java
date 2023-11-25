@@ -1,6 +1,7 @@
 package com.example.pizzarecipes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -20,6 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<PizzaRecipeItem> pizzaRecipeItems = new ArrayList<>();
 
-        pizzaRecipeItems.add(new PizzaRecipeItem(R.drawable.pizza_1, Utils.PIZZA_1_TITLE, Utils.PIZZA_1_DESCRIPTION, Utils.PIZZA_1_RECIPE))
+        pizzaRecipeItems.add(new PizzaRecipeItem(R.drawable.pizza_1, Utils.PIZZA_1_TITLE, Utils.PIZZA_1_DESCRIPTION, Utils.PIZZA_1_RECIPE));
+        pizzaRecipeItems.add(new PizzaRecipeItem(R.drawable.pizza_2, Utils.PIZZA_2_TITLE, Utils.PIZZA_2_DESCRIPTION, Utils.PIZZA_2_RECIPE));
+        pizzaRecipeItems.add(new PizzaRecipeItem(R.drawable.pizza_3, Utils.PIZZA_3_TITLE, Utils.PIZZA_3_DESCRIPTION, Utils.PIZZA_3_RECIPE));
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        adapter = new PizzaRecipeAdapter(pizzaRecipeItems);
+        layoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
     }
 }
